@@ -1,0 +1,11 @@
+server:
+  port: 18182
+  servlet:
+    context-path: /genoblock
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+#  data:
+#    mongodb:
+#       uri: mongodb://localhost:27017/geno

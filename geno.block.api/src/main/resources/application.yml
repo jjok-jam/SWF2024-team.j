@@ -1,0 +1,31 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+#  data:
+#    mongodb:
+#       uri: mongodb://localhost:27017/geno
+  servlet:
+    multipart:
+      enabled: false
+  jmx:
+    enabled: false
+  main:
+    banner-mode: log
+  thymeleaf:
+    cache: false  
+
+logging:
+  file:
+    name: ${user.dir}/log/geno.block.log 
+    max-history: 7 
+    max-size: 10MB 
+  level:  
+    '[org.team.j]': debug
+    
+server:
+  port: 18181
+  servlet:
+    session:
+      timeout: 600000s
+    context-path: /geno

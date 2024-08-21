@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1280,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes">
+    <meta name="title" content="GENOBLOCK">
+    <meta name="description" content="Blockchain-based personalized disease prevention management system">
+    <meta name="keyword" content="BLOCKCHAIN, GENOME, DISEASE">
+    <meta name="author" content="TEAM.J">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="GENOBLOCK">
+    <meta property="og:site_name" content="GENOBLOCK">
+    <meta property="og:description" content="Blockchain-based personalized disease prevention management system">
+    <title>User | VCF List</title>
+    <!-- Common CSS -->
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <!-- Common JS -->
+    <script th:src="@{/js/jquery-1.12.4.min.js}"></script>
+    <script th:src="@{/js/common.js}"></script>
+    <script th:src="@{/js/jquery.textillate.js}"></script>
+    <script th:src="@{/js/jquery.lettering.js}"></script>
+
+    <!-- Sub JS -->
+    <script th:src="@{/js/slick.min.js}"></script>
+    <script th:src="@{/js/haio-anatomy/anatomy-config.js}"></script>
+    <script th:src="@{/js/haio-anatomy/anatomy-script.js}"></script>
+
+    <!-- Sub CSS -->
+    <link rel="stylesheet" th:href="@{/css/content.css}">
+    <link rel="stylesheet" th:href="@{/css/haio-anatomy/anatomy-style.css}">
+
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="wrap">
+    <!-- user top button : s -->
+    <!-- user top button : e -->
+
+    <!-- Navigation : s -->
+    <!-- Navigation : e -->
+
+    <!-- main : s -->
+    <main id="container">
+        <section id="content">
+            <h2 class="blind">Content Area</h2>
+            <div class="inner">
+                <div class="topTitle type2" id="introTxt">
+                    <div>
+                        <h2>Personal Genome Analysis Report</h2>
+                        <p><span class="row r1">Ensure anonymity by providing a decentralized identity management system </span> <span class="row r2">that doesn't require the disclosure of personal information.</span></p>
+                        <script>
+                            textEffect();   //text effect
+                        </script>
+                    </div>
+                </div>
+                <div class="dataReult_wrap">
+                    <div class="dataR_section">
+                        <div class="userArea">
+                            <div class="userBox">
+                                <div class="user_info">
+                                    <div class="user_infoCon">
+                                        <a href="#"><strong>VCF ID</strong></a>
+                                        <strong>3739a7c2-2acd-43cf-b75f-a61567f38269</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dataR_content">
+                            <div class="dataR_conInfo">
+                                <ul class="report_info">
+                                    <li>chromosome : chr1</li>
+                                    <li>vcf : TCGA-55-6543.vcf</li>
+                                    <li>genes : BRCA1, GSTP1, p16INK4A, cyclin</li>
+                                    <li>regist date : 2023-08-01 12:55:39</li>
+                                </ul>
+                            </div>
+                            <div class="report_detail">
+                                <div class="imgSlider">
+                                    <div class="img_slider_for">
+                                        <div>
+                                            <div>
+                                                <a href="#"><img th:src="@{/images/content/report.png}" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img th:src="@{/images/content/report_2.png}" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="img_slider_nav">
+                                        <div>
+                                            <div>
+                                                <a href="#"><img th:src="@{/images/content/report.png}" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img th:src="@{/images/content/modela.png}" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						
+                    </div>
+
+                    <!--<div class="dataR_section">
+                        <div class="userArea">
+                            <div class="userBox">
+                                <div class="user_photo">
+                                    <a href="#">
+                                        <div class="thumb" style="background-image:url(../images/content/sample_user1.jpg)"></div>
+                                    </a>
+                                </div>
+                                <div class="user_info">
+                                    <div class="user_infoCon">
+                                        <a href="#"><strong>Jessica Simson</strong></a>
+                                        <p>Understanding the immunologic mechanisms in immunization</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dataR_content">
+                            <div class="dataR_conInfo">
+                                <h3><a href="#">Securing, increasing and spreading SPF primate resources</a></h3>
+                                <p>Understanding the immunologic mechanisms in immunization</p>
+                                <ul class="report_info">
+                                    <li class="time"><span>6s to run</span></li>
+                                    <li class="line"><span>250 lines</span></li>
+                                    <li class="state"><span>State</span></li>
+                                </ul>
+                            </div>
+                            <div class="report_detail">
+                                <div class="imgSlider">
+                                    <div class="img_slider_for">
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph1.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph2.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph3.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph4.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph1.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph2.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph3.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="img_slider_nav">
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph1.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph2.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph3.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph4.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph1.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph2.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph3.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="commentsWrap">
+                            <div class="commentsTop">
+                                &lt;!&ndash; ※ 참고 : button에 on 클래스를 넣어주면 로딩시 코멘트가 열린 상태로 나옵니다. &ndash;&gt;
+                                <button type="button" class="cmtView on">View Comments</button>
+                            </div>
+                            <div class="commentsView">
+                                <ul>
+                                    <li>
+                                        <div class="user_photo">
+                                            <a href="#">
+                                                <div class="thumb" style="background-image:url(../images/content/sample_user1.jpg)"></div>
+                                            </a>
+                                        </div>
+                                        <div class="cmt_inputBox">
+                                            The center shares its expertise on primate with researchers in other fields including geonomics, cerebral nerve science and drug dynamics. We are providing service to maintain SPF primates including individual training through workshop on the monitoring, quarantine and management from microorganism perspective and training to those including veterinarian and keeper who deal with primates
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="user_photo">
+                                            <a href="#">
+                                                <div class="thumb" style="background-image:url(../images/content/sample_user1.jpg)"></div>
+                                            </a>
+                                        </div>
+                                        <div class="cmt_inputBox">
+                                            The center shares its expertise on primate with researchers in other fields including geonomics, cerebral nerve science and drug dynamics. We are providing service to maintain SPF primates including individual training through workshop on the monitoring, quarantine and management from microorganism perspective and training to those including veterinarian and keeper who deal with primates
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="commentsAdd">
+                                    <div class="user_photo">
+                                        <a href="#">
+                                            <div class="thumb" style="background-image:url(../images/content/sample_user1.jpg)"></div>
+                                        </a>
+                                    </div>
+                                    <div class="cmt_inputBox">
+                                        <textarea name="comment2" id="comment2" placeholder="Add a comment" class="comment_ta" title="Write a comment"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+
+                    <!--<div class="dataR_section">
+                        <div class="userArea">
+                            <div class="userBox">
+                                <div class="user_photo">
+                                    <a href="#">
+                                        <div class="thumb" style="background-image:url(../images/content/sample_user1.jpg)"></div>
+                                    </a>
+                                </div>
+                                <div class="user_info">
+                                    <div class="user_infoCon">
+                                        <a href="#"><strong>Jessica Simson</strong></a>
+                                        <p>Understanding the immunologic mechanisms in immunization</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dataR_content">
+                            <div class="dataR_conInfo">
+                                <h3><a href="#">Securing, increasing and spreading SPF primate resources</a></h3>
+                                <p>Understanding the immunologic mechanisms in immunization</p>
+                                <ul class="report_info">
+                                    <li class="time"><span>6s to run</span></li>
+                                    <li class="line"><span>250 lines</span></li>
+                                    <li class="state"><span>State</span></li>
+                                </ul>
+                            </div>
+                            <div class="report_detail">
+                                <div class="imgSlider">
+                                    <div class="img_slider_for">
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph1.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph2.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph3.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph4.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph1.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph2.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph3.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="img_slider_nav">
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph1.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph2.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph3.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph4.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph1.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph2.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <a href="#"><img src="../images/content/sample_graph3.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="commentsWrap">
+                            <div class="commentsTop">
+                                &lt;!&ndash; ※ 참고 : button에 on 클래스를 넣어주면 로딩시 코멘트가 열린 상태로 나옵니다. &ndash;&gt;
+                                <button type="button" class="cmtView on">View Comments</button>
+                            </div>
+                            <div class="commentsView">
+                                <ul>
+                                    <li>
+                                        <div class="user_photo">
+                                            <a href="#">
+                                                <div class="thumb" style="background-image:url(../images/content/sample_user1.jpg)"></div>
+                                            </a>
+                                        </div>
+                                        <div class="cmt_inputBox">
+                                            The center shares its expertise on primate with researchers in other fields including geonomics, cerebral nerve science and drug dynamics. We are providing service to maintain SPF primates including individual training through workshop on the monitoring, quarantine and management from microorganism perspective and training to those including veterinarian and keeper who deal with primates
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="user_photo">
+                                            <a href="#">
+                                                <div class="thumb" style="background-image:url(../images/content/sample_user1.jpg)"></div>
+                                            </a>
+                                        </div>
+                                        <div class="cmt_inputBox">
+                                            The center shares its expertise on primate with researchers in other fields including geonomics, cerebral nerve science and drug dynamics. We are providing service to maintain SPF primates including individual training through workshop on the monitoring, quarantine and management from microorganism perspective and training to those including veterinarian and keeper who deal with primates
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="commentsAdd">
+                                    <div class="user_photo">
+                                        <a href="#">
+                                            <div class="thumb" style="background-image:url(../images/content/sample_user1.jpg)"></div>
+                                        </a>
+                                    </div>
+                                    <div class="cmt_inputBox">
+                                        <textarea name="comment3" id="comment3" placeholder="Add a comment" class="comment_ta" title="Write a comment"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+
+                </div>
+            </div>
+        </section>
+
+        <!-- footer : s -->
+        <footer id="footer">
+            <p class="copyright">Copyright (C) JJok-jam. All Rights Reserved.</p>
+        </footer>
+        <!-- footer : e -->
+    </main>
+    <!-- main : e -->
+</div>
+<script>
+	window.addEventListener('onload', resultSlide())
+</script>
+</body>
+</html>

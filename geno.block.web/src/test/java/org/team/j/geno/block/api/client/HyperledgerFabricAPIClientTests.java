@@ -45,7 +45,7 @@ public class HyperledgerFabricAPIClientTests {
 		log.debug(res);
 	}
 
-	@Test
+//	@Test
 	public void genes() throws JSONException {
 		
 		String res = client.userGenes("teamj");
@@ -75,7 +75,7 @@ public class HyperledgerFabricAPIClientTests {
 		GeneModel geneModel = new GeneModel();
 		geneModel.setUserNo(Utils.getInstance().getNewHash(uid));
 		geneModel.setUserId("teamj");
-		geneModel.setUserAge("27");
+		geneModel.setUserAge("34");
 		geneModel.setGenomeRequestDate(Utils.getInstance().getCurruntTime());
 		geneModel.setGenomeType("WGS");
 		geneModel.setIsGenomeApproved("false");
@@ -94,14 +94,14 @@ public class HyperledgerFabricAPIClientTests {
 
 //	@Test
 	public void update() {
-		String res = client.updateApproved("teamj", "056fdeeb1ea4a34e7058a595f900635b5f09a517b623376c6def98aab1c0cb05",
+		String res = client.updateApproved("teamj", "f91756553848b73857b59ff0047d088660c4462ddcb07268620bd24b5d991189",
 				"true",  "run", Utils.getInstance().getCurruntTime());
 		log.debug(res);
 	}
 
-//	@Test
+	@Test
 	public void select() {
-		String res = client.selectGeneNo("teamj", "GENE0");
+		String res = client.selectGeneNo("teamj", "f91756553848b73857b59ff0047d088660c4462ddcb07268620bd24b5d991189");
 		log.debug(res);
 	}
 }

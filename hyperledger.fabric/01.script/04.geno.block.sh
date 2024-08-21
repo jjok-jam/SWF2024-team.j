@@ -28,15 +28,15 @@ $ docker rmi --force $(docker images -qa)
 # prune networks
 $ docker network prune
 
-base_dir = /Users/kogun82/Documents/workspace/SWF2023-team.j/hyperledger.fabric/02.fabric
+base_dir = /Users/kogun82/Documents/workspace/SWF2024-team.j/hyperledger.fabric/02.fabric
 
 cd $base_dir
 curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.2.0 1.4.7 # intel cpu
 curl -sSL https://bit.ly/2ysbOFE | bash -s                # mac m1, m2
 
 # hyperledger
-export FABRIC_HOME=/Users/kogun82/Documents/workspace/SWF2023-team.j/hyperledger.fabric/02.fabric/geno
-export FABRIC_CFG_PATH=/Users/kogun82/Documents/workspace/SWF2023-team.j/hyperledger.fabric/02.fabric/geno/config
+export FABRIC_HOME=/Users/kogun82/Documents/workspace/SWF2024-team.j/hyperledger.fabric/02.fabric/geno
+export FABRIC_CFG_PATH=/Users/kogun82/Documents/workspace/SWF2024team.j/hyperledger.fabric/02.fabric/geno/config
 export GO_HOME=/Users/kogun82/Documents/programs/go/current
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_333.jdk/Contents/Home
 export PATH=$GO_HOME/bin:$JAVA_HOME/bin:$FABRIC_HOME/bin:$PATH
@@ -53,11 +53,11 @@ cd geno/test-network
 ./network.sh up createChannel -ca -c mychannel -s couchdb
 ./network.sh deployCC -ccn geno -ccv 1 -cci initLedger -ccl go -ccp ../chaincode/fabcar/go/
 
-cd /Users/kogun82/Documents/workspace/SWF2023-team.j/hyperledger.fabric/02.fabric/geno
+cd /Users/kogun82/Documents/workspace/SWF2024-team.j/hyperledger.fabric/02.fabric/geno
 
 ./test_run.sh
 
-cd /Users/kogun82/Documents/workspace/SWF2023-team.j/hyperledger.fabric/02.fabric/geno/fabcar/javascript
+cd /Users/kogun82/Documents/workspace/SWF2024-team.j/hyperledger.fabric/02.fabric/geno/fabcar/javascript
 
 npm install
 

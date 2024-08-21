@@ -19,14 +19,19 @@ type SmartContract struct {
 
 // Car describes basic details of what makes up a car
 type Gene struct {
-	UID			string `json:"uid"`
-	Name		string `json:"name"`
-	Chr			string `json:"chr"`
-	VCF			string `json:"vcf"`
-	GeneIDs		string `json:"gene_ids"`
-	ReportURL	string `json:"report_url"`
-	RegistDate	string `json:"regist_date"`
-	ModifyDate	string `json:"modify_date"`
+	UserNo						string `json:"userNo"`
+	UserId						string `json:"userId"`
+	UserAge						string `json:"userAge"`
+	GenomeRequestDate			string `json:"genomeRequestDate"`
+	GenomeType					string `json:"genomeType"`
+	IsGenomeApproved			string `json:"isGenomeApproved"`
+	AnalysisMethod				string `json:"analysisMethod"`
+	AnalysisOrganization		string `json:"analysisOrganization"`
+	AnalysisStatus				string `json:"analysisStatus"`
+	LastUpdatedDate				string `json:"lastUpdatedDate"`
+	UserMessage					string `json:"userMessage"`
+	AdditionalInfo				string `json:"additionalInfo"`
+	AppVersion					string `json:"appVersion"`
 }
 
 // QueryResult structure used for handling result of query
@@ -38,7 +43,21 @@ type QueryResult struct {
 // InitLedger adds a base set of cars to the ledger
 func (s *SmartContract) InitLedger(ctx contractapi.TransactionContextInterface) error {
 	genes := []Gene{
-		Gene{UID: "1d1331633c99d4dbce6c99fbd5b9bcb5cb090bfa7bd674dfb4d1b44f990387c8", Name: "teamj", Chr: "chr1", VCF: "TCGA-55-6543.vcf", GeneIDs: "BRCA1, GSTP1, p16INK4A, cyclin", ReportURL: "none", RegistDate: "2023-08-01 12:55:39", ModifyDate: "2023-08-01 12:55:39"},
+		Gene{
+			UserNo: "1d1331633c99d4dbce6c99fbd5b9bcb5cb090bfa7bd674dfb4d1b44f990387c8", 
+			UserId: "teamj", 
+			UserAge: "27", 
+			GenomeRequestDate: "2023-08-01 12:55:39", 
+			GenomeType: "WGS", 
+			IsGenomeApproved: "false", 
+			AnalysisMethod: "WGS", 
+			AnalysisOrganization: "GenomeLab Inc.",
+			AnalysisStatus: "waiting", 
+			LastUpdatedDate: "2023-08-01 12:55:39", 
+			UserMessage: "none", 
+			AdditionalInfo: "none", 
+			AppVersion: "1.0", 
+		},
 	}
 
 	for i, gene := range genes {
@@ -54,33 +73,40 @@ func (s *SmartContract) InitLedger(ctx contractapi.TransactionContextInterface) 
 }
 
 // CreateCar adds a new car to the world state with given details
-func (s *SmartContract) CreateGene(ctx contractapi.TransactionContextInterface, geneNumber string, uid string, name string, chr string, vcf string, gene_ids string, report_url string, regist_date string, modify_date string) error {
+func (s *SmartContract) CreateGene(ctx contractapi.TransactionContextInterface, userNo string, userId string, userAge string, 
+	genomeRequestDate string, genomeType string, isGenomeApproved string, analysisMethod string, 
+	analysisOrganization string, analysisStatus string, lastUpdatedDate string, userMessage string, additionalInfo string, appVersion string) error {
 	gene := Gene{
-		UID: uid,
-		Name: name,
-		Chr: chr,
-		VCF: vcf,
-		GeneIDs: gene_ids,
-		ReportURL: report_url,
-		RegistDate: regist_date,
-		ModifyDate: modify_date,
+		UserNo: userNo,
+		UserId: userId,
+		UserAge: userAge,
+		GenomeRequestDate: genomeRequestDate,
+		GenomeType: genomeType,
+		IsGenomeApproved: isGenomeApproved,
+		AnalysisMethod: analysisMethod,
+		AnalysisOrganization: analysisOrganization,
+		AnalysisStatus: analysisStatus,
+		LastUpdatedDate: lastUpdatedDate,
+		UserMessage: userMessage,
+		AdditionalInfo: additionalInfo,
+		AppVersion: appVersion,
 	}
 
 	geneAsBytes, _ := json.Marshal(gene)
 
-	return ctx.GetStub().PutState(geneNumber, geneAsBytes)
+	return ctx.GetStub().PutState(userNo, geneAsBytes)
 }
 
 // QueryCar returns the car stored in the world state with given id
-func (s *SmartContract) QueryGene(ctx contractapi.TransactionContextInterface, geneNumber string) (*Gene, error) {
-	geneAsBytes, err := ctx.GetStub().GetState(geneNumber)
+func (s *SmartContract) QueryGene(ctx contractapi.TransactionContextInterface, userNo string) (*Gene, error) {
+	geneAsBytes, err := ctx.GetStub().GetState(userNo)
 
 	if err != nil {
 		return nil, fmt.Errorf("Failed to read from world state. %s", err.Error())
 	}
 
 	if geneAsBytes == nil {
-		return nil, fmt.Errorf("%s does not exist", geneNumber)
+		return nil, fmt.Errorf("%s does not exist", userNo)
 	}
 
 	gene := new(Gene)
@@ -121,18 +147,20 @@ func (s *SmartContract) QueryAllGene(ctx contractapi.TransactionContextInterface
 }
 
 // ChangeCarOwner updates the owner field of car with given id in world state
-func (s *SmartContract) ChangeReportURL(ctx contractapi.TransactionContextInterface, geneNumber string, newReportURL string) error {
-	gene, err := s.QueryGene(ctx, geneNumber)
+func (s *SmartContract) ChangeGene(ctx contractapi.TransactionContextInterface, userNo string, isGenomeApproved string, analysisStatus string, lastUpdatedDate string) error {
+	gene, err := s.QueryGene(ctx, userNo)
 
 	if err != nil {
 		return err
 	}
 
-	gene.ReportURL = newReportURL
+	gene.IsGenomeApproved = isGenomeApproved
+	gene.AnalysisStatus = analysisStatus
+	gene.LastUpdatedDate = lastUpdatedDate
 
 	geneAsBytes, _ := json.Marshal(gene)
 
-	return ctx.GetStub().PutState(geneNumber, geneAsBytes)
+	return ctx.GetStub().PutState(userNo, geneAsBytes)
 }
 
 func main() {

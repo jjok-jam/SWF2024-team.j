@@ -43,10 +43,10 @@ public class HyperledgerFabricAPIClient {
 	}
 
 	@SuppressWarnings("unchecked")
-	public String userGenes(String name) {
+	public String userGenes(String userId) {
 
 		JSONObject json = new JSONObject();
-		json.put("user_name", name);
+		json.put("userId", userId);
 
 		String url = String.format(GenoBlockURL.USER_GENES);
 
@@ -61,7 +61,7 @@ public class HyperledgerFabricAPIClient {
 
 		String json = gson.toJson(geneModel);
 		String url = String.format(GenoBlockURL.INSERT_GENES);
-		
+
 		System.out.println(url);
 
 		Object obj = Utils.getInstance().doPost(url, json);
@@ -72,12 +72,15 @@ public class HyperledgerFabricAPIClient {
 	}
 
 	@SuppressWarnings("unchecked")
-	public String updateReportURL(String name, String geneNo, String reportURL) {
+	public String updateApproved(String userId, String userNo, String isGenomeApproved, String lastUpdatedDate,
+			String analysisStatus) {
 
 		JSONObject json = new JSONObject();
-		json.put("name", name);
-		json.put("gene_no", geneNo);
-		json.put("report_url", reportURL);
+		json.put("userId", userId);
+		json.put("userNo", userNo);
+		json.put("isGenomeApproved", isGenomeApproved);
+		json.put("analysisStatus", analysisStatus);
+		json.put("lastUpdatedDate", lastUpdatedDate);
 
 		String url = String.format(GenoBlockURL.UPDATE_REPORT_URL);
 
@@ -89,11 +92,11 @@ public class HyperledgerFabricAPIClient {
 	}
 
 	@SuppressWarnings("unchecked")
-	public String selectGeneNo(String name, String geneNo) {
+	public String selectGeneNo(String userId, String userNo) {
 
 		JSONObject json = new JSONObject();
-		json.put("name", name);
-		json.put("gene_no", geneNo);
+		json.put("userId", userId);
+		json.put("userNo", userNo);
 
 		String url = String.format(GenoBlockURL.SELECT_GENE_NO);
 

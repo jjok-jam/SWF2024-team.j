@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.team.j.geno.block.api.client.HyperledgerFabricAPIClient;
+import org.team.j.geno.block.utils.Utils;
 
 /**
  * @author wangho
@@ -86,7 +87,7 @@ public class UserController {
 		
 		System.out.println(genoKey);
 		
-		String res = client.updateReportURL("teamj", genoKey, "http://localhost:18182/genoblock/main/report");
+		String res = client.updateApproved("teamj", genoKey, "true",  "run", Utils.getInstance().getCurruntTime());
 		System.out.println(res);
 		
 		return genoKey;

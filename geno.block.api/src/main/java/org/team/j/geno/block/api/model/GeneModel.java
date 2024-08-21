@@ -13,13 +13,17 @@ public class GeneModel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private String geneNo;
-	private String uid;
-	private String name;
-	private String chr;
-	private String vcf;
-	private String geneIDs;
-	private String reportURL;
-	private String registDate;
-	private String modifyDate;
+	private String userNo;
+	private String userId;
+	private String userAge;
+	private String genomeRequestDate;
+	private String genomeType;
+	private String isGenomeApproved;
+	private String analysisMethod;
+	private String analysisOrganization;
+	private String analysisStatus;
+	private String lastUpdatedDate;
+	private String userMessage;
+	private String additionalInfo;
+	private String appVersion;
 }

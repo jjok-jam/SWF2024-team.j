@@ -192,7 +192,7 @@ public class HyperledgerAPIController {
 	@PostMapping(value = "/user_genes")
 	public String userGenes(@RequestBody HashMap<String, Object> map) {
 
-		String name = (String) map.get("user_name");
+		String name = (String) map.get("userId");
 
 		String res = null;
 
@@ -238,7 +238,7 @@ public class HyperledgerAPIController {
 					"org1.example.com", "connection-org1.yaml");
 
 			Gateway.Builder builder = Gateway.createBuilder();
-			builder.identity(wallet, geneModel.getName()).networkConfig(networkConfigPath).discovery(true);
+			builder.identity(wallet, geneModel.getUserId()).networkConfig(networkConfigPath).discovery(true);
 
 			try (Gateway gateway = builder.connect()) {
 
@@ -246,9 +246,12 @@ public class HyperledgerAPIController {
 				Contract contract = network.getContract("geno");
 
 				byte[] result;
-				result = contract.submitTransaction("createGene", geneModel.getGeneNo(), geneModel.getUid(),
-						geneModel.getName(), geneModel.getChr(), geneModel.getVcf(), geneModel.getGeneIDs(),
-						geneModel.getReportURL(), geneModel.getRegistDate(), geneModel.getModifyDate());
+				result = contract.submitTransaction("createGene", geneModel.getUserNo(), geneModel.getUserId(),
+						geneModel.getUserAge(), geneModel.getGenomeRequestDate(), geneModel.getGenomeType(),
+						geneModel.getIsGenomeApproved(), geneModel.getAnalysisMethod(),
+						geneModel.getAnalysisOrganization(), geneModel.getAnalysisStatus(),
+						geneModel.getLastUpdatedDate(), geneModel.getUserMessage(), geneModel.getAdditionalInfo(),
+						geneModel.getAppVersion());
 
 				log.debug(new String(result));
 			}
@@ -260,12 +263,14 @@ public class HyperledgerAPIController {
 	}
 
 	@ResponseBody
-	@PostMapping(value = "/update_report_url")
+	@PostMapping(value = "/update_gene")
 	public String updateReportURL(@RequestBody HashMap<String, Object> map) {
 
-		String name = (String) map.get("name");
-		String geneNo = (String) map.get("gene_no");
-		String reportURL = (String) map.get("report_url");
+		String userId = (String) map.get("userId");
+		String userNo = (String) map.get("userNo");
+		String isGenomeApproved = (String) map.get("isGenomeApproved");
+		String analysisStatus = (String) map.get("analysisStatus");
+		String lastUpdatedDate = (String) map.get("lastUpdatedDate");
 
 		String res = null;
 
@@ -277,7 +282,7 @@ public class HyperledgerAPIController {
 					"org1.example.com", "connection-org1.yaml");
 
 			Gateway.Builder builder = Gateway.createBuilder();
-			builder.identity(wallet, name).networkConfig(networkConfigPath).discovery(true);
+			builder.identity(wallet, userId).networkConfig(networkConfigPath).discovery(true);
 
 			try (Gateway gateway = builder.connect()) {
 
@@ -285,7 +290,7 @@ public class HyperledgerAPIController {
 				Contract contract = network.getContract("geno");
 
 				byte[] result;
-				result = contract.submitTransaction("changeReportURL", geneNo, reportURL);
+				result = contract.submitTransaction("ChangeGene", userNo, isGenomeApproved, analysisStatus, lastUpdatedDate);
 				res = new String(result);
 
 				log.debug(res);
@@ -298,11 +303,11 @@ public class HyperledgerAPIController {
 	}
 
 	@ResponseBody
-	@PostMapping(value = "/select_gene_no")
+	@PostMapping(value = "/select_user_no")
 	public String selectGeneNo(@RequestBody HashMap<String, Object> map) {
 
-		String name = (String) map.get("name");
-		String geneNo = (String) map.get("gene_no");
+		String userId = (String) map.get("userId");
+		String userNo = (String) map.get("userNo");
 
 		String res = null;
 
@@ -314,7 +319,7 @@ public class HyperledgerAPIController {
 					"org1.example.com", "connection-org1.yaml");
 
 			Gateway.Builder builder = Gateway.createBuilder();
-			builder.identity(wallet, name).networkConfig(networkConfigPath).discovery(true);
+			builder.identity(wallet, userId).networkConfig(networkConfigPath).discovery(true);
 
 			try (Gateway gateway = builder.connect()) {
 
@@ -322,7 +327,8 @@ public class HyperledgerAPIController {
 				Contract contract = network.getContract("geno");
 
 				byte[] result;
-				result = contract.evaluateTransaction("queryGene", geneNo);
+				result = contract.evaluateTransaction("queryGene", userNo);
+
 				res = new String(result);
 
 				log.debug(res);

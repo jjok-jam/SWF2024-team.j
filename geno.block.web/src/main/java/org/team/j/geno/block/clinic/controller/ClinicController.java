@@ -2,7 +2,6 @@ package org.team.j.geno.block.clinic.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -44,24 +43,26 @@ public class ClinicController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String register(@ModelAttribute("id_info") GeneModel geneModel) {
-
-		log.debug("geneModel: {}", geneModel);
+	public String register() {
 
 		String uid = Utils.getInstance().getNewUID();
+		
+		GeneModel geneModel = new GeneModel();
+		geneModel.setUserId("teamj");
+		geneModel.setUserNo(Utils.getInstance().getNewHash(uid));
+		geneModel.setUserAge("27");
+		geneModel.setGenomeRequestDate(Utils.getInstance().getCurruntTime());
+		geneModel.setGenomeType("WGS");
+		geneModel.setIsGenomeApproved("false");
+		geneModel.setAnalysisMethod("Whole Genome Sequencing");
+		geneModel.setAnalysisOrganization("GenomeLab Inc.");
+		geneModel.setAnalysisStatus("대기");
+		geneModel.setLastUpdatedDate(Utils.getInstance().getCurruntTime());
+		geneModel.setUserMessage("none");
+		geneModel.setAdditionalInfo("none");
+		geneModel.setAppVersion("1.0");
 
-		GeneModel gene = new GeneModel();
-		gene.setGeneNo(Utils.getInstance().getNewHash(uid));
-		gene.setUid(uid);
-		gene.setName(geneModel.getName());
-		gene.setChr(geneModel.getChr());
-		gene.setVcf(geneModel.getVcf());
-		gene.setGeneIDs(geneModel.getGeneIDs());
-		gene.setReportURL(geneModel.getReportURL());
-		gene.setRegistDate(Utils.getInstance().getCurruntTime());
-		gene.setModifyDate(Utils.getInstance().getCurruntTime());
-
-		String res = client.insertGenes(gene);
+		String res = client.insertGenes(geneModel);
 
 		log.debug("res: {}", res);
 

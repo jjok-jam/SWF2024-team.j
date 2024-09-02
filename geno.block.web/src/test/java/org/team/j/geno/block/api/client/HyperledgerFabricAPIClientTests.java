@@ -45,7 +45,7 @@ public class HyperledgerFabricAPIClientTests {
 		log.debug(res);
 	}
 
-//	@Test
+	@Test
 	public void genes() throws JSONException {
 		
 		String res = client.userGenes("teamj");
